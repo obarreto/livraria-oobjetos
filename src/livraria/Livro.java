@@ -4,16 +4,12 @@ public class Livro {
 	
 	String nome;
 	String descricao;
-	private double valor;
+	protected double valor;
 	String isbn;
 	Autor autor;
-	private boolean impresso;
-	
-	
 	public Livro(Autor autor) {
 		this();
-		this.autor = autor;
-		this.impresso = true;	
+		this.autor = autor;	
 	}
 	
 	public Livro() {
@@ -45,9 +41,7 @@ public class Livro {
 		
 		if (porcentagem > 0.3) {
 			return false;
-		} else if(!this.impresso && porcentagem > 0.15) {
-			return false;
-		}
+		} 
 		this.valor -= this.valor * porcentagem;
 		return true;
 	}
