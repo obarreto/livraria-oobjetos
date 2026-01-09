@@ -14,7 +14,10 @@ public class CadastroLivros {
 		livro.setNome("Java 8 Prático");
 		livro.setDescricao("Novos recurso da linguagem");
 		livro.setValor(59.90);
-		livro.aplicaDescontoDe(0.16);
+		
+		if (((Promocional) livro).aplicaDescontoDe10PorCento()) {
+			System.out.println("Valor agora é: " + livro.getValor());
+		}
 		
 
 		System.out.println();

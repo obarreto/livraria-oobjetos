@@ -6,9 +6,4 @@ public class MiniLivro extends Livro{
 		// TODO Auto-generated constructor stub
 		super(autor);
 	}
-	
-	@Override
-	public boolean aplicaDescontoDe(double porcentagem) {
-		return false;
-	}
 }
