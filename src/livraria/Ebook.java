@@ -3,18 +3,22 @@ package livraria;
 public class Ebook extends Livro{
 	
 	private String waterMark;
-	
+
+
 	public Ebook(Autor autor) {
-		super(autor);
+		super(autor, false);
 	}
-	
+
 	@Override
 	public boolean aplicaDescontoDe(double porcentagem) {
 		if(porcentagem > 0.15) {
 			return false;
 		}
 		
-	    return super.aplicaDescontoDe(porcentagem);
+		System.out.println("Aplicando desconto em Ebook");
+		double desconto = this.getValor() * porcentagem;
+		setValor(getValor() - desconto);
+		return true;
 	}
 	
 	public void setWaterMark(String waterMark) {

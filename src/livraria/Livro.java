@@ -1,22 +1,25 @@
 package livraria;
 
-public class Livro {
+public abstract class Livro {
 	
-	String nome;
-	String descricao;
+	private String nome;
+	private String descricao;
 	private double valor;
-	String isbn;
-	Autor autor;
+	private String isbn;
+	private Autor autor;
+	private boolean impresso = true;
+	
 	public Livro(Autor autor) {
-		this();
-		this.autor = autor;	
+		this(autor, true);
 	}
 	
-	public Livro() {
-		System.out.println("book created");
-		this.isbn = "000-00-00000-00-0";
+		public Livro(Autor autor, boolean impresso) {
+	    this.autor = autor;
+	    this.impresso = impresso;
+	    this.isbn = "000-00-00000-00-0";
 	}
-	void mostrarDetalhes() {
+
+	public void mostrarDetalhes() {
 		String mensagem = "Mostrando detalhes do livro";
 		
 		System.out.println(mensagem);
@@ -33,25 +36,20 @@ public class Livro {
 				System.out.println("Sem autor cadastrado!");
 			}
 		
+		System.out.println("Tipo: " + (isImpresso() ? "Livro impresso" : "Ebook"));
+
+		
 		System.out.println("--");
 		
 	}
+
+	public abstract boolean aplicaDescontoDe(double porcentagem);
 	
-	boolean aplicaDescontoDe(double porcentagem) {
-		
-		if (porcentagem > 0.3) {
-			return false;
-		} 
-		this.valor -= this.valor * porcentagem;
-		return true;
-	}
-	
-	boolean temAutor() {
+	public boolean temAutor() {
 		return this.autor != null;
 		
 	}
-	
-	
+		
 	//
 	public String getNome() {
 		return nome;
@@ -72,7 +70,7 @@ public class Livro {
 	
 	//
 	public String getIsbn() {
-		System.out.println("Aguardando ISBN");
+		
 		return isbn;
 	}
 	
@@ -90,11 +88,20 @@ public class Livro {
 	}
 	
 	//
-	double getValor() {
+	public double getValor() {
 		return this.valor;
 	}
 	
-	void setValor(double valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 		}
+	
+	public boolean isImpresso() {
+		
+		return impresso;
+	}
+
+	public void setImpresso(boolean impresso) {
+		this.impresso = impresso;
+	}
 }

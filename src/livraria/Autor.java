@@ -6,7 +6,7 @@ public class Autor {
 	String email;
 	String cpf;
 	
-	void mostrarDetalhesAutor() {
+	public void mostrarDetalhesAutor() {
 		
 		System.out.println("autor: " + nome);
 		System.out.println("email: " + email);

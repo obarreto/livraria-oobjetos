@@ -9,18 +9,14 @@ public class CadastroLivros {
 		autor.email = "ozeias.sbarreto@uninove.edu.br";
 		autor.cpf = "123.345.678-09";
 		
-		Livro livro = new Livro(autor);
+		Livro livro = new LivroFisico(autor);
 		
 		livro.setNome("Java 8 Prático");
 		livro.setDescricao("Novos recurso da linguagem");
 		livro.setValor(59.90);
-		System.out.println("valor atual: "+ livro.getValor());
-		livro.aplicaDescontoDe(0.2);
+		livro.aplicaDescontoDe(0.16);
 		
-		
-		
-		//livro.valor -= livro.valor * 0.1;
-		//System.out.println("Valor com desconto: "+ livro.aplicaDescontoDe(0.2));
+
 		System.out.println();
 		livro.setIsbn("978-85-66250-46-6");
 		
@@ -33,7 +29,7 @@ public class CadastroLivros {
 		outroAutor.setEmail("janinhalindademain@euquerovoce.com");
 		outroAutor.setCpf("345.123.764-18");
 		
-		Livro outroLivro = new Livro(outroAutor);
+		Livro outroLivro = new LivroFisico(outroAutor);
 		
 		outroLivro.setNome("Ser feliz é o que importa");
 		outroLivro.setDescricao("Crie seus primeiros passos para felicidade");
@@ -43,16 +39,20 @@ public class CadastroLivros {
 		outroLivro.setAutor(outroAutor);
 		outroLivro.mostrarDetalhes();
 		
-		//Autor maisOutroAutor = new Autor();
-		Livro maisOutroLivro = new Livro();
+		Livro maisOutroLivro = new Ebook(null);
 		
 		maisOutroLivro.setNome("De Junior à Senior");
 		maisOutroLivro.setDescricao("A jornada rumo a elite em dev");
 		maisOutroLivro.setValor(259.90);
-		maisOutroLivro.getIsbn();//("349-84-79577-88-26");
+		maisOutroLivro.getIsbn();
 		maisOutroLivro.mostrarDetalhes();
+			
+		CarrinhoDeCompras carrinhoDeCompra = new CarrinhoDeCompras();
+		carrinhoDeCompra.adiciona(livro);
+		carrinhoDeCompra.adiciona(outroLivro);
+		carrinhoDeCompra.adiciona(maisOutroLivro);
 		
-		if(autor == outroAutor){System.out.println("sim");}
-		else {System.out.println("não");}
+		System.out.println("Total: " + carrinhoDeCompra.getTotal());
+		
 	}
 }

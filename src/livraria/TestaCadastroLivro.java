@@ -6,20 +6,48 @@ import org.junit.jupiter.api.Test;
 
 class TestaCadastroLivro {
 
-	@Test
+	/*@Test
 	void cadastroLivro() {
 		
 		
 		
-		Livro livro = new Livro();
+		Livro livro = new Livro(null);
 		
 		livro.setNome("Java 8 Prático");
 		livro.setDescricao("Novos recurso da linguagem");
 		livro.setValor(59.90);
 		System.out.println("valor atual: "+ livro.getValor());
-		livro.aplicaDescontoDe(0.2);
+		livro.aplicaDescontoDe(0.1);
 		livro.getIsbn();
+		
 		livro.mostrarDetalhes();
+		
+	}*/
+	
+	@Test
+	void RegraDeDesconto(){
+		Autor autor = new Autor();
+		autor.setNome("Murilo Barreto");
+		
+		Livro livro = new LivroFisico(autor);
+		livro.setValor(59.9);
+		
+		if(!livro.aplicaDescontoDe(0.3)) {
+			System.out.println("Desconto no livro não pode ser maior do que 30%");
+		}else {
+			System.out.println("Valor do livro com desconto: " + livro.getValor());
+		}
+		
+		Livro ebook = new Ebook(autor);
+		ebook.setValor(29.9);
+		ebook.setImpresso(true);
+		
+		if(!ebook.aplicaDescontoDe(0.15)) {
+			System.out.println("Desconto de ebook não pode ser maior do que 15%");
+		}else {
+			System.out.println("Valor do ebook com desconto: " + ebook.getValor());
+		}
+		
 	}
 
 }
