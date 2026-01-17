@@ -1,13 +1,20 @@
-package livraria;
+package br.com.ozystem.livraria.teste;
+
+import br.com.ozystem.livraria.Autor;
+import br.com.ozystem.livraria.produto.CarrinhoDeCompras;
+import br.com.ozystem.livraria.produto.Ebook;
+import br.com.ozystem.livraria.produto.Livro;
+import br.com.ozystem.livraria.produto.LivroFisico;
+import br.com.ozystem.livraria.produto.Promocional;
 
 public class CadastroLivros {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Autor autor = new Autor();
-		autor.nome = "Ozéias Barreto";
-		autor.email = "ozeias.sbarreto@uninove.edu.br";
-		autor.cpf = "123.345.678-09";
+		autor.setNome("Ozéias Barreto");
+		autor.setEmail("ozeias.sbarreto@uninove.edu.br");
+		autor.setCpf("123.345.678-09");
 		
 		Livro livro = new LivroFisico(autor);
 		

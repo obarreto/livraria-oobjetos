@@ -1,4 +1,6 @@
-package livraria;
+package br.com.ozystem.livraria.produto;
+
+import br.com.ozystem.livraria.Editora;
 
 public class Revista implements Produto, Promocional{
 	

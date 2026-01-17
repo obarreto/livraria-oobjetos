@@ -1,4 +1,4 @@
-package livraria;
+package br.com.ozystem.livraria;
 
 public class Autor {
 	

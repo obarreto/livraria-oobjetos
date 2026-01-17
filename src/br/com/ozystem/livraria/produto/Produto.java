@@ -1,4 +1,4 @@
-package livraria;
+package br.com.ozystem.livraria.produto;
 
 public interface Produto {
 	

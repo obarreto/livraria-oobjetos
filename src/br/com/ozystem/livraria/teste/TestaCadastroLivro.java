@@ -1,8 +1,14 @@
-package livraria;
+package br.com.ozystem.livraria.teste;
 
 
 
 import org.junit.jupiter.api.Test;
+
+import br.com.ozystem.livraria.Autor;
+import br.com.ozystem.livraria.produto.Ebook;
+import br.com.ozystem.livraria.produto.Livro;
+import br.com.ozystem.livraria.produto.LivroFisico;
+import br.com.ozystem.livraria.produto.Promocional;
 
 class TestaCadastroLivro {
 

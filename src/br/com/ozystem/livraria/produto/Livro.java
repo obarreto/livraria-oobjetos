@@ -1,4 +1,6 @@
-package livraria;
+package br.com.ozystem.livraria.produto;
+
+import br.com.ozystem.livraria.Autor;
 
 public abstract class Livro implements Produto{
 	
