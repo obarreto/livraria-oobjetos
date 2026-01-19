@@ -5,6 +5,7 @@ import br.com.ozystem.livraria.produto.CarrinhoDeCompras;
 import br.com.ozystem.livraria.produto.Ebook;
 import br.com.ozystem.livraria.produto.Livro;
 import br.com.ozystem.livraria.produto.LivroFisico;
+import br.com.ozystem.livraria.produto.Produto;
 import br.com.ozystem.livraria.produto.Promocional;
 
 public class CadastroLivros {
@@ -26,7 +27,6 @@ public class CadastroLivros {
 			System.out.println("Valor agora é: " + livro.getValor());
 		}
 		
-
 		System.out.println();
 		livro.setIsbn("978-85-66250-46-6");
 		
@@ -49,7 +49,7 @@ public class CadastroLivros {
 		outroLivro.setAutor(outroAutor);
 		outroLivro.mostrarDetalhes();
 		
-		Livro maisOutroLivro = new Ebook(null);
+		Livro maisOutroLivro = new Ebook(autor);
 		
 		maisOutroLivro.setNome("De Junior à Senior");
 		maisOutroLivro.setDescricao("A jornada rumo a elite em dev");
@@ -64,5 +64,13 @@ public class CadastroLivros {
 		
 		System.out.println("Total: " + carrinhoDeCompra.getTotal());
 		
+		Produto[] produtos = carrinhoDeCompra.getProdutos();
+		
+		for(int i = 0; i <= produtos.length; i++) {
+			Produto produto = produtos[i];
+			if(produto != null) {
+				System.out.println(produto.getValor());
+			}
+		}
 	}
 }
