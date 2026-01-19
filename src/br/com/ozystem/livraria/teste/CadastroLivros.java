@@ -66,11 +66,18 @@ public class CadastroLivros {
 		
 		Produto[] produtos = carrinhoDeCompra.getProdutos();
 		
-		for(Produto produto : produtos) {
+		for(int i = 0; i <= produtos.length; i++){
+			try {
+				Produto produto = produtos[i];
 			
 			if(produto != null) {
 				System.out.println(produto.getValor());
 			}
+			}catch (Exception e) {
+				System.out.println("deu exception no indice: " + i);
+				e.printStackTrace();
+			}
 		}
+		System.out.println("fui executado!");
 	}
 }
