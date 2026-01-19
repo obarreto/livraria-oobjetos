@@ -16,70 +16,69 @@ public class CadastroLivros {
 		autor.setNome("Ozéias Barreto");
 		autor.setEmail("ozeias.sbarreto@uninove.edu.br");
 		autor.setCpf("123.345.678-09");
-		
+
 		Livro livro = new LivroFisico(autor);
-		
+
 		livro.setNome("Java 8 Prático");
 		livro.setDescricao("Novos recurso da linguagem");
 		livro.setValor(59.90);
-		
+
 		if (((Promocional) livro).aplicaDescontoDe10PorCento()) {
 			System.out.println("Valor agora é: " + livro.getValor());
 		}
-		
+
 		System.out.println();
 		livro.setIsbn("978-85-66250-46-6");
-		
+
 		livro.setAutor(autor);
 		livro.mostrarDetalhes();
-		
-		
+
+
 		Autor outroAutor = new Autor();
 		outroAutor.setNome("Janaína Cecília");
 		outroAutor.setEmail("janinhalindademain@euquerovoce.com");
 		outroAutor.setCpf("345.123.764-18");
-		
+
 		Livro outroLivro = new LivroFisico(outroAutor);
-		
+
 		outroLivro.setNome("Ser feliz é o que importa");
 		outroLivro.setDescricao("Crie seus primeiros passos para felicidade");
 		outroLivro.setValor(59.90); 
 		outroLivro.setIsbn("978-85-66250-22-0");
-		
+
 		outroLivro.setAutor(outroAutor);
 		outroLivro.mostrarDetalhes();
-		
+
 		Livro maisOutroLivro = new Ebook(autor);
-		
+
 		maisOutroLivro.setNome("De Junior à Senior");
 		maisOutroLivro.setDescricao("A jornada rumo a elite em dev");
 		maisOutroLivro.setValor(259.90);
 		maisOutroLivro.getIsbn();
 		maisOutroLivro.mostrarDetalhes();
-			
+
 		CarrinhoDeCompras carrinhoDeCompra = new CarrinhoDeCompras();
 		carrinhoDeCompra.adiciona(livro);
 		carrinhoDeCompra.adiciona(outroLivro);
 		carrinhoDeCompra.adiciona(maisOutroLivro);
-		
+
 		System.out.println("Total: " + carrinhoDeCompra.getTotal());
-		
+
 		Produto[] produtos = carrinhoDeCompra.getProdutos();
-		
+
 		for(int i = 0; i <= produtos.length; i++){
 			try {
 				Produto produto = produtos[i];
-			
-			if(produto != null) {
-				System.out.println(produto.getValor());
-			}
-			}catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("deu exception no indice: " + i);
-				//e.printStackTrace(); printando a stacktrace
-			}catch (NullPointerException e) {
-				System.out.println("array não foi instaciando");
+
+				if(produto != null) {
+					System.out.println(produto.getValor());
+				}
+			}catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+						System.out.println("foi uma das duas");
 			}
 		}
 		System.out.println("fui executado!");
 	}
+	
 }
+
