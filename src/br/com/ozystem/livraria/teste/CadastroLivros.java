@@ -66,8 +66,8 @@ public class CadastroLivros {
 		
 		Produto[] produtos = carrinhoDeCompra.getProdutos();
 		
-		for(int i = 0; i <= produtos.length; i++) {
-			Produto produto = produtos[i];
+		for(Produto produto : produtos) {
+			
 			if(produto != null) {
 				System.out.println(produto.getValor());
 			}
